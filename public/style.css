@@ -1,0 +1,31 @@
+.chat {
+    background-color: rgb(248, 240, 240);
+    border-radius: 12px;
+    height: 265px;
+    width: 480px;
+    display: inline-block;
+    margin: 8px;
+}
+.msg {
+    background-color: rgb(221, 255, 126);
+} 
+p {
+    padding-left: 10px;
+}
+.first {
+    padding-top: -5px;
+}
+.last {
+    padding-bottom: 7px;
+    text-align: center;
+}
+span {
+    font-family: cursive;
+}
+.link {
+    text-align: center;
+    font-size: 10px; 
+} 
+a.edit {
+   margin-right: 80px;
+}

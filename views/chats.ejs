@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2>Displaying all the chats</h2>
+    <% for(chat of chats){%> 
+      <div class="chat">
+        <p class="first"><b>From : </b><i><%= chat.from %></i></p>
+        <p><b>To : </b><i><%= chat.to %></i></p>
+        <div class="msg">
+            <p><b>Message : </b><span><%= chat.message %></span></p>
+        </div>        
+        <p><b>Date : </b><%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %></p>
+        <p><b>Time : </b><%= chat.created_at.toString().split(" ")[4] %></p>
+        <% if(chat.updated_at){ %>
+          <p><b>Last Updated : </b><%= chat.updated_at.toString().split(" ").slice(0,4).join(" ") %> , <%= chat.updated_at.toString().split(" ")[4] %></p>
+        <% } %>
+        <p class="last">
+          <a class="edit" href="http://localhost:8080/chats/<%= chat._id %>/edit">Edit message</a>
+          <a class="delete" chat-id="<%= chat._id %>" href="http://localhost:8080/chats">Delete chat</a>
+        </p>
+      </div>
+    <%}%>
+    <br> <br>
+    <div class="link">
+      <form action="http://localhost:8080/chats/new">
+        <button>Create New Chat</button>
+      </form>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
