@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,"/public")));
 
 app.listen(8080,()=>{ 
-    console.log('server is listening to the port 8080');
+  console.log('server is listening to the port 8080');
 })
 
 app.set("view engine", "ejs");
