@@ -16,3 +16,19 @@ Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInter
    at winsw.WrapperService.OnShutdown()
 2024-05-31 10:02:32 - Starting C:\Program Files\nodejs\node.exe  --harmony "C:\Users\monik\onedrive\desktop\coding\web dev\mongo crud\node_modules\node-windows\lib\wrapper.js" --file "C:\Users\monik\OneDrive\Desktop\CODING\Web Dev\mongo crud\index.js" --scriptoptions= --log "nodeBasicServer wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
 2024-05-31 10:02:32 - Started 6176
+2024-05-31 15:37:20 - Stopping nodebasicserver.exe
+2024-05-31 15:37:20 - ProcessKill 6176
+2024-05-31 15:37:20 - Found child process: 6356 Name: conhost.exe
+2024-05-31 15:37:20 - Found child process: 7096 Name: node.exe
+2024-05-31 15:37:20 - Stopping process 6356
+2024-05-31 15:37:20 - Send SIGINT 6356
+2024-05-31 15:37:20 - SIGINT to 6356 failed - Killing as fallback
+2024-05-31 15:37:20 - Stopping process 7096
+2024-05-31 15:37:20 - Send SIGINT 7096
+2024-05-31 15:37:20 - SIGINT to 7096 failed - Killing as fallback
+2024-05-31 15:37:20 - Stopping process 6176
+2024-05-31 15:37:20 - Send SIGINT 6176
+2024-05-31 15:37:20 - SIGINT to 6176 failed - Killing as fallback
+2024-05-31 15:37:20 - Finished nodebasicserver.exe
+2024-05-31 15:37:21 - Starting C:\Program Files\nodejs\node.exe  --harmony "C:\Users\monik\onedrive\desktop\coding\web dev\mongo crud\node_modules\node-windows\lib\wrapper.js" --file "C:\Users\monik\OneDrive\Desktop\CODING\Web Dev\mongo crud\index.js" --scriptoptions= --log "nodeBasicServer wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-05-31 15:37:21 - Started 23000
