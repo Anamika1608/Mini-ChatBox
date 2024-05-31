@@ -1,2 +1,18 @@
 2024-05-30 22:43:46 - Starting C:\Program Files\nodejs\node.exe  --harmony "C:\Users\monik\onedrive\desktop\coding\web dev\mongo crud\node_modules\node-windows\lib\wrapper.js" --file "C:\Users\monik\OneDrive\Desktop\CODING\Web Dev\mongo crud\index.js" --scriptoptions= --log "nodeBasicServer wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
 2024-05-30 22:43:46 - Started 34568
+2024-05-31 10:01:58 - Stopping nodebasicserver.exe
+2024-05-31 10:01:58 - ProcessKill 34568
+2024-05-31 10:01:58 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2024-05-31 10:02:32 - Starting C:\Program Files\nodejs\node.exe  --harmony "C:\Users\monik\onedrive\desktop\coding\web dev\mongo crud\node_modules\node-windows\lib\wrapper.js" --file "C:\Users\monik\OneDrive\Desktop\CODING\Web Dev\mongo crud\index.js" --scriptoptions= --log "nodeBasicServer wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2024-05-31 10:02:32 - Started 6176
