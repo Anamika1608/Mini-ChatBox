@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose'); 
 const chat = require('./models/chat.js')
 const methodOverride = require('method-override');
+const ExpressError = require("./ExpressError.js");
 
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
@@ -49,6 +50,14 @@ app.post("/chats",async (req,res)=>{
   res.redirect("/chats");
 })
 
+// show route
+app.get("/chats/:id",async(req,res,next)=>{
+  let id = req.params.id;
+  let required = await chat.findById(id);
+  res.render('edit.ejs',{required});
+})
+ 
+// edit route 
 app.get("/chats/:id/edit",async(req,res)=>{
   let id = req.params.id;
   let required = await chat.findById(id);
@@ -66,4 +75,10 @@ app.get("/chats/:id/delete",async(req,res)=>{
   let new_id = req.params.id;
   await chat.findByIdAndDelete(new_id);
   res.redirect("/chats");
+})
+
+// Error Handling middleware
+app.use((err,req,res,next)=>{
+  let {status = 500,message="Some error occured"} = err;
+  res.status(status).send(message);
 })
