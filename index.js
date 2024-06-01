@@ -30,8 +30,13 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/chats", async (req,res)=>{
-  let chats = await chat.find();
-  res.render("chats.ejs", {chats});
+  try {
+    let chats = await chat.find();
+    res.render("chats.ejs", {chats});
+  }
+  catch {
+    next(err);
+  }
 }) 
 
 app.get("/chats/new",(req,res)=>{
@@ -39,42 +44,66 @@ app.get("/chats/new",(req,res)=>{
 })
 
 app.post("/chats",async (req,res)=>{
-  let {from,to,message} = req.body;
-  let newChat = new chat({
-    from : from,
-    to : to,
-    message : message,
-    created_at : new Date()
-  })
-  await newChat.save();
-  res.redirect("/chats");
+  try {
+    let {from,to,message} = req.body;
+    let newChat = new chat({
+      from : from,
+      to : to,
+      message : message,
+      created_at : new Date()
+    })
+    await newChat.save();
+    res.redirect("/chats");
+  }
+  catch (err) {
+    next(err) // call the error handling middleware fn
+  }
 })
 
 // show route
 app.get("/chats/:id",async(req,res,next)=>{
-  let id = req.params.id;
-  let required = await chat.findById(id);
-  res.render('edit.ejs',{required});
+  try {
+    let id = req.params.id;
+    let required = await chat.findById(id);
+    if(!chat) next(new ExpressError(500,"Chat not found"));
+    res.render('edit.ejs',{required});
+  }
+  catch(err) { next(err); }
 })
  
 // edit route 
 app.get("/chats/:id/edit",async(req,res)=>{
-  let id = req.params.id;
-  let required = await chat.findById(id);
-  res.render('edit.ejs',{required});
+  try {
+    let id = req.params.id;
+    let required = await chat.findById(id);
+    res.render('edit.ejs',{required});
+  }
+  catch (err) {
+    next(err);
+  }
 })
 
 app.put("/chats/:id",async(req,res)=>{
-  let new_id = req.params.id;
-  let new_msg = req.body.message;
-  let ans = await chat.findByIdAndUpdate(new_id,{message:new_msg,updated_at : new Date()},{runValidators : true});
-  res.redirect("/chats");
+  try {
+    let new_id = req.params.id;
+    let new_msg = req.body.message;
+    let ans = await chat.findByIdAndUpdate(new_id,{message:new_msg,updated_at : new Date()},{runValidators : true});
+    res.redirect("/chats");
+  }
+  catch(err) {
+    next(err);
+  }
 })
 
 app.get("/chats/:id/delete",async(req,res)=>{
-  let new_id = req.params.id;
-  await chat.findByIdAndDelete(new_id);
-  res.redirect("/chats");
+  try {
+    let new_id = req.params.id;
+    await chat.findByIdAndDelete(new_id);
+    res.redirect("/chats");
+  }
+  catch(err) {
+    next(err);
+  }
 })
 
 // Error Handling middleware
