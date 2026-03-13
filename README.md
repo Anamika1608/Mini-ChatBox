@@ -1,3 +1,3 @@
-This is the mini chatbox somewhere like the whatsapp. Here you can send the message to another person.
-And even you can edit that message and updated time will also be displayed in the dashboard. 
-Also you can delete and create new chat from the dashboard.
+This is a mini chatbox application similar to WhatsApp. You can send messages to another person.
+You can also edit a message, and the updated time will be displayed on the dashboard.
+You can delete chats and create new ones from the dashboard.
