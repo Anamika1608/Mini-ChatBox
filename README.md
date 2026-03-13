@@ -9,3 +9,9 @@ Also you can delete and create new chat from the dashboard.
 - Send messages
 - Edit existing messages
 - Create and delete chats
+
+### Built With
+
+- Express.js
+- MongoDB with Mongoose
+- EJS templates
